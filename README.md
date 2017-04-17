@@ -61,3 +61,9 @@ In the accident time window, www.foo.com will not be affect for 259200 seconds o
 
     ;; ADDITIONAL SECTION:
     ns.bar.net.  259200     IN      A       111.111.111.111
+
+# What's Better to directly enlarge hotdomain's A record ttl
+
+If directly enlarge hotdomain's A record ttl, there will not space for CDN's dynamic domain traffic redirect optimization.
+
+    www.foo.com.    259200     IN    A   xxx.xxx.xxx.xxx
