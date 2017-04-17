@@ -34,13 +34,13 @@ ns[12].foo.com move hot subdomain's ns record, www.foo.com's NS is temporary set
 In the accident time window, www.foo.com will not be affect for 259200 seconds on RECUR-X, not the ns cache ttl's 60 seconds.
 
     ;; QUESTION SECTION:
-    ;www.foo.com.                    IN      A
+    ;www.foo.com.            IN      A
 
     ;; AUTHORITY SECTION:
     www.foo.com.   259200    IN      NS      ns.bar.net.
 
     ;; ADDITIONAL SECTION:
-    ns.bar.net.  259200     IN      A       111.111.111.111
+    ns.bar.net.  259200      IN      A       111.111.111.111
 
 
 ## Mitigating Domain NS record hijack influnence by layering NS
@@ -51,16 +51,16 @@ In the accident time window, www.foo.com will not be affect for 259200 seconds o
 
 
     ;; QUESTION SECTION:
-    ;www.foo.com.                    IN      A
+    ;www.foo.com.              IN    A
 
     ;; ANSWER SECTION:
     www.foo.com.    259200     IN    CNAME   www.bar.net.
 
     ;; AUTHORITY SECTION:
-    bar.net.   259200    IN      NS      ns.bar.net.
+    bar.net.   259200          IN    NS      ns.bar.net.
 
     ;; ADDITIONAL SECTION:
-    ns.bar.net.  259200     IN      A       111.111.111.111
+    ns.bar.net.  259200        IN    A       111.111.111.111
 
 # What about directly enlarge hotdomain's A record ttl
 
