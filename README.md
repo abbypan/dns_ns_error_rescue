@@ -13,6 +13,8 @@ But in the accident time window, there can be some temporary rescue proposal to 
 
 [Patents Application: Mitigating Domain NS record hijack influnence by layering NS](https://www.google.com/patents/CN106210165A) 
 
+# Overview
+
 For example, foo.com's glue ns is hijacked at registrar like baidu.com accident of 2010.
 
 correct ns: ns1.foo.com; ns2.foo.com
@@ -25,7 +27,7 @@ RECUR-X will query hot subdomains like "www.foo.com" to the old correct ns[12].f
 
 We can adjust to enlarge the expire ttl for these hot subdomains on this "not expired ns" RECUR-X.
 
-# Mitigating Domain NS record hijack influnence by moving NS
+## Mitigating Domain NS record hijack influnence by moving NS
 
 ns[12].foo.com move hot subdomain's ns record, www.foo.com's NS is temporary set to ns.bar.net.
 
@@ -41,7 +43,7 @@ In the accident time window, www.foo.com will not be affect for 259200 seconds o
     ns.bar.net.  259200     IN      A       111.111.111.111
 
 
-# Mitigating Domain NS record hijack influnence by layering NS
+## Mitigating Domain NS record hijack influnence by layering NS
 
 ns[12].foo.com layering hot subdomain's resolution, www.foo.com is temporary CNAME to www.bar.net, and bat.net's ns is ns.bar.net.
 
